@@ -379,18 +379,25 @@ export default function Portfolio() {
 
       <section className="pt-32 pb-20 px-6">
         <div className="max-w-5xl mx-auto">
-          <div className="flex flex-col md:flex-row items-center gap-12 mb-12">
-            <div className="relative group">
-              <div className={`w-64 h-64 rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 group-hover:scale-105 group-hover:rotate-3 group-hover:shadow-3xl ${darkMode ? 'border-4 border-neutral-800' : 'border-4 border-white'}`}>
+          <div className="flex flex-col md:flex-row items-center gap-16 mb-12">
+            <div className="relative group flex-shrink-0">
+              <div className="absolute inset-0 bg-white rounded-full blur-3xl opacity-40 animate-pulse"></div>
+              <div className="relative w-80 h-96 flex items-end justify-center transition-all duration-500 group-hover:scale-105 drop-shadow-2xl">
                 <img 
-                  src="https://i.postimg.cc/yk1Mmw43/minha-foto.jpg"
+                  src="https://i.postimg.cc/HktMBWkK/Gemini-Generated-Image-335s8n335s8n335s.png"
                   alt="Landerson Catanhede"
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-contain transition-all duration-500 group-hover:scale-105 group-hover:-translate-y-2"
+                  style={{ 
+                    imageRendering: 'crisp-edges',
+                    WebkitFontSmoothing: 'antialiased',
+                    filter: 'drop-shadow(0 25px 50px rgba(0, 0, 0, 0.3))'
+                  }}
+                  loading="eager"
                 />
               </div>
             </div>
 
-            <div className="flex-1 text-center md:text-left">
+            <div className="flex-1 text-center md:text-left max-w-2xl">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium mb-6">
                 <span className="w-2 h-2 bg-blue-500 rounded-full animate-pulse" />
                 {currentLang.hero.badge}
@@ -527,7 +534,7 @@ export default function Portfolio() {
                         onMouseEnter={() => playSound('hover')}
                         onClick={() => playSound('click')}
                       >
-                        {language === 'en' ? 'View Project' : 'Ver Projeto'} <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1" />
+                        {language === 'en' ? 'View Project' : 'Ver Projeto'} <ArrowRight size={16} className="transition-transform duration-300 group-hover:translate-x-1"/>
                       </a>
                     )}
 
@@ -535,7 +542,7 @@ export default function Portfolio() {
                       {project.tech.map((tech, j) => (
                         <span 
                           key={j}
-                          className={`px-3 py-1 text-sm rounded-md font-medium transition-all duration-300 hover:scale-110 hover:-translate-y-1 cursor-default ${darkMode ? 'bg-neutral-700text-neutral-300 hover:bg-neutral-600' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}
+                          className={`px-3 py-1 text-sm rounded-md font-medium transition-all duration-300 hover:scale-110 hover:-translate-y-1 cursor-default ${darkMode ? 'bg-neutral-700 text-neutral-300 hover:bg-neutral-600' : 'bg-neutral-100 text-neutral-700 hover:bg-neutral-200'}`}
                         >
                           {tech}
                         </span>
@@ -669,3 +676,4 @@ export default function Portfolio() {
     </div>
   );
 }
+                    
