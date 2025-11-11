@@ -82,15 +82,37 @@ export default function Portfolio() {
     en: {
       nav: {
         projects: 'Projects',
+        expertise: 'Expertise',
         about: 'About',
         contact: 'Contact'
       },
       hero: {
         badge: 'Available for work',
-        title: 'Web3 & Full Stack Developer',
-        description: 'I build decentralized applications and modern web solutions. Specialized in smart contracts, DeFi protocols, and full-stack development.',
+        title: 'Web3 & AI-Powered Full Stack Developer',
+        description: 'I build decentralized applications, intelligent interfaces, and modern web solutions. Specialized in smart contracts, DeFi protocols, AI integration, and full-stack development.',
         cta1: 'Get in touch',
         cta2: 'View my work'
+      },
+      expertise: {
+        title: 'Building AI-Powered Experiences',
+        subtitle: 'My specialty is developing intelligent interfaces that leverage generative AI technologies to deliver exceptional end-user experiences. With expertise in both full-stack development and AI integration, I bridge the gap between cutting-edge technology and intuitive design.',
+        cards: [
+          {
+            title: 'AI Integration Architecture',
+            description: 'Expert in designing and implementing AI-powered features using modern LLM APIs, vector databases, and intelligent caching strategies for optimal performance.',
+            icon: '🧠'
+          },
+          {
+            title: 'Intelligent User Interfaces',
+            description: 'Creating responsive, context-aware interfaces that adapt to user behavior using AI-driven insights and natural language processing.',
+            icon: '✨'
+          },
+          {
+            title: 'Full-Stack AI Solutions',
+            description: 'End-to-end development of AI-enhanced applications, from prompt engineering to scalable backend systems and beautiful frontend experiences.',
+            icon: '⚡'
+          }
+        ]
       },
       projects: {
         title: 'Featured Projects'
@@ -119,15 +141,37 @@ export default function Portfolio() {
     pt: {
       nav: {
         projects: 'Projetos',
+        expertise: 'Expertise',
         about: 'Sobre',
         contact: 'Contato'
       },
       hero: {
         badge: 'Disponível para trabalho',
-        title: 'Desenvolvedor Web3 & Full Stack',
-        description: 'Construo aplicações descentralizadas e soluções web modernas. Especializado em smart contracts, protocolos DeFi e desenvolvimento full-stack.',
+        title: 'Desenvolvedor Web3 & IA Full Stack',
+        description: 'Construo aplicações descentralizadas, interfaces inteligentes e soluções web modernas. Especializado em smart contracts, protocolos DeFi, integração de IA e desenvolvimento full-stack.',
         cta1: 'Entre em contato',
         cta2: 'Ver meu trabalho'
+      },
+      expertise: {
+        title: 'Construindo Experiências com IA',
+        subtitle: 'Minha especialidade é desenvolver interfaces inteligentes que aproveitam tecnologias de IA generativa para entregar experiências excepcionais ao usuário. Com expertise em desenvolvimento full-stack e integração de IA, eu faço a ponte entre tecnologia de ponta e design intuitivo.',
+        cards: [
+          {
+            title: 'Arquitetura de Integração IA',
+            description: 'Expert em projetar e implementar recursos com IA usando APIs de LLM modernas, bancos de dados vetoriais e estratégias inteligentes de cache para performance ideal.',
+            icon: '🧠'
+          },
+          {
+            title: 'Interfaces Inteligentes',
+            description: 'Criando interfaces responsivas e conscientes do contexto que se adaptam ao comportamento do usuário usando insights de IA e processamento de linguagem natural.',
+            icon: '✨'
+          },
+          {
+            title: 'Soluções IA Full-Stack',
+            description: 'Desenvolvimento completo de aplicações aprimoradas com IA, desde engenharia de prompts até sistemas backend escaláveis e experiências frontend incríveis.',
+            icon: '⚡'
+          }
+        ]
       },
       projects: {
         title: 'Projetos em Destaque'
@@ -349,6 +393,9 @@ export default function Portfolio() {
             <a href="#projects" onClick={(e) => { playSound('click'); scrollToSection(e, 'projects'); }} className={`text-sm font-medium transition-all duration-300 hover:scale-110 ${darkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-neutral-900'}`} onMouseEnter={() => playSound('hover')}>
               {currentLang.nav.projects}
             </a>
+            <a href="#expertise" onClick={(e) => { playSound('click'); scrollToSection(e, 'expertise'); }} className={`text-sm font-medium transition-all duration-300 hover:scale-110 ${darkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-neutral-900'}`} onMouseEnter={() => playSound('hover')}>
+              {currentLang.nav.expertise}
+            </a>
             <a href="#about" onClick={(e) => { playSound('click'); scrollToSection(e, 'about'); }} className={`text-sm font-medium transition-all duration-300 hover:scale-110 ${darkMode ? 'text-neutral-400 hover:text-white' : 'text-neutral-600 hover:text-neutral-900'}`} onMouseEnter={() => playSound('hover')}>
               {currentLang.nav.about}
             </a>
@@ -461,6 +508,96 @@ export default function Portfolio() {
             >
               <Mail size={20} />
             </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="expertise" className={`py-20 px-6 ${darkMode ? 'bg-neutral-800/30' : 'bg-gradient-to-b from-white to-blue-50'}`}>
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-full text-sm font-medium mb-6 animate-pulse">
+              <span>🤖</span>
+              <span>AI-Powered Development</span>
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              {currentLang.expertise.title}
+            </h2>
+            <p className={`text-lg max-w-3xl mx-auto leading-relaxed ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
+              {currentLang.expertise.subtitle}
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            {currentLang.expertise.cards.map((card, i) => (
+              <div 
+                key={i}
+                className={`group relative p-8 rounded-2xl transition-all duration-500 hover:scale-105 hover:-translate-y-2 cursor-pointer ${darkMode ? 'bg-neutral-800 border border-neutral-700 hover:border-blue-500 hover:shadow-2xl hover:shadow-blue-500/20' : 'bg-white border border-neutral-200 hover:border-blue-400 hover:shadow-2xl hover:shadow-blue-400/20'}`}
+                onMouseEnter={() => playSound('hover')}
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                
+                <div className="relative">
+                  <div className="text-5xl mb-6 group-hover:scale-110 group-hover:rotate-12 transition-transform duration-500">
+                    {card.icon}
+                  </div><h3 className="text-xl font-bold mb-4 group-hover:text-blue-600 transition-colors duration-300">
+                    {card.title}
+                  </h3>
+                  
+                  <p className={`leading-relaxed ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
+                    {card.description}
+                  </p>
+
+                  <div className="mt-6 flex items-center gap-2 text-sm font-medium text-blue-600 opacity-0 group-hover:opacity-100 transition-all duration-300 group-hover:translate-x-2">
+                    {language === 'en' ? 'Learn more' : 'Saiba mais'}
+                    <ArrowRight size={16} />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          <div className={`mt-16 p-8 rounded-2xl border ${darkMode ? 'bg-neutral-800/50 border-neutral-700' : 'bg-white border-neutral-200'}`}>
+            <div className="grid md:grid-cols-2 gap-8 items-center">
+              <div>
+                <h3 className="text-2xl font-bold mb-4">
+                  {language === 'en' ? 'Tech Stack for AI Development' : 'Stack de Tecnologia para IA'}
+                </h3>
+                <p className={`mb-6 ${darkMode ? 'text-neutral-400' : 'text-neutral-600'}`}>
+                  {language === 'en' 
+                    ? 'Leveraging cutting-edge tools and frameworks to build intelligent, scalable applications.'
+                    : 'Aproveitando ferramentas e frameworks de ponta para construir aplicações inteligentes e escaláveis.'}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {['OpenAI API', 'LangChain', 'Vector DBs', 'RAG', 'Prompt Engineering', 'Claude API', 'Hugging Face'].map((tech, i) => (
+                    <span 
+                      key={i}
+                      className={`px-4 py-2 text-sm rounded-lg font-medium transition-all duration-300 hover:scale-110 hover:-translate-y-1 cursor-default ${darkMode ? 'bg-gradient-to-r from-blue-900/50 to-purple-900/50 text-blue-300 border border-blue-800' : 'bg-gradient-to-r from-blue-100 to-purple-100 text-blue-700 border border-blue-200'}`}
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </div>
+              
+              <div className="relative">
+                <div className={`p-6 rounded-xl border ${darkMode ? 'bg-neutral-900/50 border-neutral-700' : 'bg-neutral-50 border-neutral-200'}`}>
+                  <div className="flex items-center gap-3 mb-4">
+                    <div className="w-3 h-3 rounded-full bg-red-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                    <div className="w-3 h-3 rounded-full bg-green-500"></div>
+                  </div>
+                  <pre className={`text-sm overflow-x-auto ${darkMode ? 'text-green-400' : 'text-green-600'}`}>
+                    <code>{`const ai = await openai.chat({
+  model: "gpt-4",
+  messages: [...]
+});
+
+// Intelligent response
+return ai.choices[0];`}</code>
+                  </pre>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
